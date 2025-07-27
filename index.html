@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoş Geldin</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: black;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-image: url('bizim.png'); /* sizin resminiz */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #intro video {
+      width: 80vw;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.7);
+    }
+
+    #enter-btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 18px;
+      background-color: #ff6b81;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #enter-btn:hover {
+      background-color: #ff4757;
+    }
+
+    #heart-message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+      color: #f1c40f;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
+      border-radius: 12px;
+      opacity: 0;
+      z-index: 2000;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    #content {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #f1c40f;
+    }
+
+    .link {
+      display: block;
+      margin: 15px auto;
+      padding: 15px 25px;
+      font-size: 20px;
+      background-color: #1abc9c;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.3s ease;
+    }
+
+    .link:hover {
+      background-color: #16a085;
+    }
+
+    .go-to-letter {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 30px;
+      font-size: 18px;
+      background-color: #9b59b6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .go-to-letter:hover {
+      background-color: #8e44ad;
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .music-player audio {
+      width: 200px;
+    }
+
+    .music-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .music-controls button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTRO -->
+  <div id="intro">
+    <video id="intro-video" autoplay muted playsinline>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+    <button id="enter-btn">Kalbim</button>
+  </div>
+
+  <!-- HEART MESSAGE -->
+  <div id="heart-message">Kalbime giriş yaptın.</div>
+
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    <h1>📁 Kategoriler</h1>
+    <a class="link" href="videolar.html">🎬 Videolar</a>
+    <a class="link" href="anilar.html">📖 Anılar</a>
+    <a class="link" href="resimler.html">🖼️ Resimler</a>
+    <a class="link" href="dusunceler.html">💭 Düşünceler</a>
+    <br>
+    <a class="go-to-letter" href="surpriz.html">💌 Özür Mektubunu Gör</a>
+  </div>
+
+  <!-- MUSIC PLAYER -->
+  <div class="music-player">
+    <audio id="audio" controls>
+      <source id="audio-source" src="muzik1.mp3" type="audio/mp3">
+      Tarayıcınız ses etiketini desteklemiyor.
+    </audio>
+    <div class="music-controls">
+      <button onclick="prevSong()">⏮️</button>
+      <span id="track-name" style="color: white;">1. Şarkı</span>
+      <button onclick="nextSong()">⏭️</button>
+    </div>
+  </div>
+
+  <script>
+    const intro = document.getElementById("intro");
+    const video = document.getElementById("intro-video");
+    const btn = document.getElementById("enter-btn");
+    const content = document.getElementById("content");
+    const heartMessage = document.getElementById("heart-message");
+
+    const seen = sessionStorage.getItem("introSeen");
+
+    if (seen === "true") {
+      intro.style.display = "none";
+      content.style.display = "block";
+    }
+
+    btn.addEventListener("click", () => {
+      video.muted = false;
+      video.play();
+      btn.style.display = "none";
+
+      // Kalbime giriş yaptın mesajı
+      heartMessage.style.display = "block";
+
+      // Mesajdan sonra intro kapanır, site açılır
+      video.onended = () => {
+        sessionStorage.setItem("introSeen", "true");
+        heartMessage.style.display = "none";
+        intro.style.display = "none";
+        content.style.display = "block";
+      };
+    });
+
+    // MÜZİK LİSTESİ
+    const musicList = [
+      { file: "muzik1.mp3", name: "1. Şarkı" },
+      { file: "muzik2.mp3", name: "2. Şarkı" },
+      { file: "muzik3.mp3", name: "3. Şarkı" },
+      { file: "muzik3.mp3", name: "4. Şarkı" }
+    ];
+
+    let current = 0;
+    const audio = document.getElementById("audio");
+    const audioSrc = document.getElementById("audio-source");
+    const trackName = document.getElementById("track-name");
+
+    function loadTrack(index) {
+      audioSrc.src = musicList[index].file;
+      audio.load();
+      trackName.textContent = musicList[index].name;
+      audio.play();
+    }
+
+    function nextSong() {
+      current = (current + 1) % musicList.length;
+      loadTrack(current);
+    }
+
+    function prevSong() {
+      current = (current - 1 + musicList.length) % musicList.length;
+      loadTrack(current);
+    }
+
+    audio.addEventListener("ended", nextSong);
+  </script>
+</body>
+</html>
