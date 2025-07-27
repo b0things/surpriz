@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Senin İçin...</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #2c3e50, #bdc3c7);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .slide {
+      display: none;
+      font-size: 24px;
+      margin: 40px auto;
+      max-width: 700px;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    button {
+      margin: 10px 15px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      background-color: #e74c3c;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    img {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Müzik -->
+  <audio id="bgmusic" loop>
+    <source src="sarki.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Müzik kullanıcı tıklamasıyla başlatılır
+    window.addEventListener('click', function () {
+      document.getElementById('bgmusic').play();
+    }, { once: true });
+  </script>
+
+  <h1>Hayatımın aşkına, Eşim Benzerime 💞</h1>
+
+  <!-- Slaytlar -->
+  <div id="slide1" class="slide visible">
+    <p>Aramızdaki mesafe belki 410 km... Ama kalbim her zaman seninle. 💌</p>
+    <img src="bizz1.jpg" alt="Fotoğraf 1">
+  </div>
+
+  <div id="slide2" class="slide">
+    <p>Sana yapmamam gereken bir şey yaptım, kalbini kırdım. Bunun için kendime çok kızıyorum... 😔</p>
+    <img src="biz2.jpg" alt="Fotoğraf 2">
+  </div>
+
+  <div id="slide3" class="slide">
+    <p>Senin gülüşün, sesin, varlığın... hepsi benim için bir armağan. Sen bana bu hayatta verilen en güzel hediyesin. 🌹</p>
+    <img src="bizz3.jpg" alt="GIF Fotoğraf">
+  </div>
+
+  <div id="slide4" class="slide">
+    <p>Sadece "Özür dilerim" demek yetmez biliyorum... Bu yüzden seni tekrar kazanmak için buradayım. 🤍</p>
+    <img src="gif1.gif" alt="Fotoğraf 4">
+  </div>
+
+  <div id="slide5" class="slide">
+    <p>Eğer kalbinin kapısı hâlâ aralıksa... ben oradayım. Ve hep seni bekliyorum. 💫</p>
+    <img src="bizz5.jpg" alt="Fotoğraf 5">
+  </div>
+
+  <!-- Butonlar -->
+  <div>
+    <button onclick="prevSlide()">⟵ Geri</button>
+    <button onclick="nextSlide()">İleri ⟶</button>
+  </div>
+
+  <!-- Slayt Geçiş Scripti -->
+  <script>
+    let current = 1;
+    const totalSlides = 5;
+
+    function showSlide(index) {
+      for (let i = 1; i <= totalSlides; i++) {
+        document.getElementById(`slide${i}`).classList.remove('visible');
+      }
+      document.getElementById(`slide${index}`).classList.add('visible');
+    }
+
+    function nextSlide() {
+      if (current < totalSlides) {
+        current++;
+        showSlide(current);
+      } else {
+        alert("Seni her şeyden çok seviyorum Pusulam... 💖");
+      }
+    }
+
+    function prevSlide() {
+      if (current > 1) {
+        current--;
+        showSlide(current);
+      }
+    }
+  </script>
+
+  <!-- 💌 İmza Buraya Geliyor -->
+  <p style="font-family: 'Brush Script MT', cursive; font-size: 20px; color: #fff; margin-top: 100px;">
+    Bu sayfa senin için, kalpten yazıldı... 💖<br>
+    <strong>– Tüm yüzüklere hükmedecek tek yüzüğün sahibine <em></em></strong>
+
+
+    <!-- ANA SAYFAYA DÖN BUTONU -->
+
+
+    <a href="index.html" class="back-home">🏠 Ana Sayfaya Dön</a>
+  </div>
+
+</body>
+</html>
