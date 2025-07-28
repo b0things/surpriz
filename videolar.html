@@ -2,180 +2,64 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>🎬 Videolar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videolar</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       background-color: black;
       color: white;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 40px 20px;
+      font-family: Arial, sans-serif;
       text-align: center;
+      padding: 20px;
     }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      color: #f1c40f;
-    }
-
-    p.subtitle {
-      font-size: 18px;
-      color: #ffccd5;
-      margin-bottom: 40px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .video-block {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 0 15px rgba(255, 192, 203, 0.2);
-    }
-
-    video {
+    .video-container {
+      margin: 40px auto;
+      max-width: 800px;
       width: 100%;
+    }
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
       border-radius: 10px;
     }
-
-    .note {
-      margin-top: 60px;
-      font-size: 16px;
-      color: #ff8ba7;
-      font-style: italic;
-    }
-
-    a.home-link {
-      display: inline-block;
+    .back-link {
       margin-top: 40px;
-      padding: 12px 25px;
-      background-color: #e74c3c;
-      color: white;
-      border-radius: 8px;
+      display: inline-block;
+      color: #f1c40f;
       text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    a.home-link:hover {
-      background-color: #c0392b;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-
   <h1>🎬 Gözlerinde Kaybolduğum Anların Sesi</h1>
   <p class="subtitle">Bazı anlar sessizdir ama iz bırakan bir film gibi kalır içimizde...</p>
 
-  <div class="video-grid">
-    <div class="video-block">
-      <video controls>
-        <source src="https://streamable.com/e/4fmuuj?" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="https://streamable.com/e/zpxkmx?" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video3.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video4.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video5.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video6.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video7.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video8.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video9.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video10.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video11.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video12.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video13.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video14.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video15.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-    <div class="video-block">
-      <video controls>
-        <source src="video16.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-      </video>
-    </div>
-  </div>
+  <div class="video-container"><iframe src="https://streamable.com/e/4fmuuj" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/zpxkmx" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/83xg16" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/5xkdms" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/crsy0z" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/u2isr2" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/j93pf2" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/pjv4e6" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/c03so1" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/vxycq0" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/po3li0" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/djbg0l" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/ilevt4" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/mzzb6e" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/sns02x" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-container"><iframe src="https://streamable.com/e/qlf6gh" allowfullscreen allow="autoplay"></iframe></div>
+
 
   <div class="note">
     ❤️ Bu videolar, seninle geçen en güzel zamanlardan sadece birkaçı... Daha niceleri eklenecek sevgilim.
   </div>
 
-  <a class="home-link" href="index.html">⟵ Ana Sayfaya Dön</a>
 
+  <a href="index.html" class="back-link">Ana sayfaya dön</a>
 </body>
 </html>
