@@ -11,19 +11,16 @@
       padding: 40px 20px;
       text-align: center;
     }
-
     h1 {
       font-size: 36px;
       margin-bottom: 10px;
       color: #f1c40f;
     }
-
     p.subtitle {
       font-size: 18px;
       color: #ffccd5;
       margin-bottom: 40px;
     }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -31,27 +28,24 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-
     .image-block {
       background: rgba(255, 255, 255, 0.05);
       padding: 10px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(255, 192, 203, 0.2);
+      cursor: pointer;
     }
-
     .image-block img {
       width: 100%;
       border-radius: 10px;
       object-fit: cover;
     }
-
     .note {
       margin-top: 60px;
       font-size: 16px;
       color: #ff8ba7;
       font-style: italic;
     }
-
     a.home-link {
       display: inline-block;
       margin-top: 40px;
@@ -62,9 +56,40 @@
       text-decoration: none;
       transition: background 0.3s ease;
     }
-
     a.home-link:hover {
       background-color: #c0392b;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+    .modal-controls {
+      margin-top: 20px;
+    }
+    .modal-controls button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #ff6b81;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .modal-controls button:hover {
+      background-color: #ff4757;
     }
   </style>
 </head>
@@ -73,76 +98,8 @@
   <h1>🖼️ Her Gülüşün, Kalbime Kazınmış Bir Tablo</h1>
   <p class="subtitle">Gözlerimin hafızasında senin en güzel halin var...</p>
 
-  <div class="gallery">
-    <div class="image-block">
-      <img src="https://store5.gofile.io/download/web/dc96af36-a13c-48d9-9137-e7afbade0a6e/thumb_80ecf6ff4251841cb6050597eaf0694a" alt="Anı Fotoğrafı 1">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/eb5631a9-7b53-40fc-8b5b-04a5fbcbcdd0/thumb_97271d6a2f1b5f2c3ca01145d6c4a325" alt="Anı Fotoğrafı 2">
-    </div>
-    <div class="image-block">
-      <img src="https://store5.gofile.io/download/web/f89f64cd-11eb-43fe-81fa-3ae8ef657e11/thumb_f4babc42e5cde946eea867f883dc8c6f" alt="Anı Fotoğrafı 3">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/ea2898e2-dd36-494b-ab95-5b1db4dcefae/thumb_1838b6d83301b86f1f03534184dfca40" alt="Anı Fotoğrafı 4">
-    </div>
-    <div class="image-block">
-      <img src="https://store5.gofile.io/download/web/9fb27b69-1b81-4694-a82a-7a70c53b80fe/thumb_07edbcdec4201f6554469b6dd83fe462" alt="Anı Fotoğrafı 5">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/dde678b4-94fe-4873-a00f-502d64150fc4/thumb_68f3c5d6a62f2c3283cb56422656d014" alt="Anı Fotoğrafı 6">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/b44043c2-0a23-435a-b5b4-6648a8c8bec6/thumb_21563b44ffef16de2f95218fdef56917" alt="Anı Fotoğrafı 7">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/f7f3f93d-e7b5-4d7b-ae58-2c15f3d5c6ce/thumb_02dff70284b85d11dcf4e1a7eeb862c3" alt="Anı Fotoğrafı 8">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/e6f75b40-0559-4442-b23d-4f41fb1cb6d2/thumb_c7f07037b05e401f72042957b9ab96fd" alt="Anı Fotoğrafı 9">
-    </div>
-    <div class="image-block">
-      <img src="https://store5.gofile.io/download/web/868200d5-76d9-4f63-bc7c-45356b1036c0/thumb_80787d40c8b85da79fcce92ddbc20bbd" alt="Anı Fotoğrafı 10">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/8e87726b-902c-43bb-8dec-8d333e37ec26/thumb_872ffe622665be133574392bacb47ed5" alt="Anı Fotoğrafı 11">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/95fdaced-ece0-4bb8-9a30-cb5b621a5acc/thumb_d45415774069a3802893cc5cdac0e0f8" alt="Anı Fotoğrafı 12">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/ba4b8104-6b27-47ee-8dfe-2cf9cd8eaae9/thumb_f02077834d1987b3420eff927dbc4a68" alt="Anı Fotoğrafı 13">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/8d250078-da4d-4854-b302-b01d5cd4bef1/thumb_c620d2e1dc127d40ed87bfe8c2a34bd8" alt="Anı Fotoğrafı 14">
-    </div>
-    <div class="image-block">
-      <img src="https://store5.gofile.io/download/web/c5eb23c3-1ea6-40d5-9111-58e77ee9ccc0/thumb_b3c60000643c9b225fd87934c7fa9136" alt="Anı Fotoğrafı 15">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/b73cd140-2141-4ed7-bc56-a549fe306491/thumb_9c9f27e35102b24a58d720bb426f3f6b" alt="Anı Fotoğrafı 16">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/d8c9cc69-d726-4e65-81cd-357390c5966a/thumb_9ecd3eb06b0684d98882be163be6888e" alt="Anı Fotoğrafı 17">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/f45ed830-3702-4dff-81a9-453cfa97d79a/thumb_f5da33e1e0552feff5ace4cbe7145fe7" alt="Anı Fotoğrafı 18">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/ad541c4a-a844-4984-95ff-f54ed67121aa/thumb_d8a25f054bcfd750b95467dfbb7644b4" alt="Anı Fotoğrafı 19">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/cfcd2217-ca80-4eeb-8b76-3a140d46f29c/thumb_6381cf323f59b957fb3535577026f1d6" alt="Anı Fotoğrafı 20">
-    </div>
-    <div class="image-block">
-      <img src="https://store10.gofile.io/download/web/e01bd3f2-0376-4cbe-ace5-534466649aad/thumb_3d362ffca80e6b948b0b0e6a8f2db83e" alt="Anı Fotoğrafı 21">
-    </div>
-    <div class="image-block">
-      <img src="https://store-eu-par-3.gofile.io/download/web/9726b0d1-6e13-4f43-b382-107b1704cd51/thumb_59883407872b83330285d3fb99c34fdf" alt="Anı Fotoğrafı 22">
-    </div>
-    <div class="image-block">
-      <img src="https://store5.gofile.io/download/web/d67a27fb-c5e1-442d-b0ce-acf1f1195aef/thumb_01dbc4c4c1b349671a6447056689fe3c" alt="Anı Fotoğrafı 23">
-    </div>
+  <div class="gallery" id="gallery">
+    <!-- Otomatik oluşturulacak -->
   </div>
 
   <div class="note">
@@ -150,6 +107,115 @@
   </div>
 
   <a class="home-link" href="index.html">⟵ Ana Sayfaya Dön</a>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <img id="modal-image" src="">
+    <div class="modal-controls">
+      <button onclick="prevImage()">⟵ Önceki</button>
+      <button onclick="closeModal()">Kapat</button>
+      <button onclick="nextImage()">Sonraki ⟶</button>
+    </div>
+  </div>
+
+  <script>
+    const smallImages = [
+      "https://store5.gofile.io/download/web/dc96af36-a13c-48d9-9137-e7afbade0a6e/thumb_80ecf6ff4251841cb6050597eaf0694a",
+      "https://store-eu-par-3.gofile.io/download/web/eb5631a9-7b53-40fc-8b5b-04a5fbcbcdd0/thumb_97271d6a2f1b5f2c3ca01145d6c4a325",
+      "https://store5.gofile.io/download/web/f89f64cd-11eb-43fe-81fa-3ae8ef657e11/thumb_f4babc42e5cde946eea867f883dc8c6f",
+      "https://store10.gofile.io/download/web/ea2898e2-dd36-494b-ab95-5b1db4dcefae/thumb_1838b6d83301b86f1f03534184dfca40",
+      "https://store5.gofile.io/download/web/9fb27b69-1b81-4694-a82a-7a70c53b80fe/thumb_07edbcdec4201f6554469b6dd83fe462",
+      "https://store10.gofile.io/download/web/dde678b4-94fe-4873-a00f-502d64150fc4/thumb_68f3c5d6a62f2c3283cb56422656d014",
+      "https://store10.gofile.io/download/web/b44043c2-0a23-435a-b5b4-6648a8c8bec6/thumb_21563b44ffef16de2f95218fdef56917",
+      "https://store-eu-par-3.gofile.io/download/web/f7f3f93d-e7b5-4d7b-ae58-2c15f3d5c6ce/thumb_02dff70284b85d11dcf4e1a7eeb862c3",
+      "https://store10.gofile.io/download/web/e6f75b40-0559-4442-b23d-4f41fb1cb6d2/thumb_c7f07037b05e401f72042957b9ab96fd",
+      "https://store5.gofile.io/download/web/868200d5-76d9-4f63-bc7c-45356b1036c0/thumb_80787d40c8b85da79fcce92ddbc20bbd",
+      "https://store10.gofile.io/download/web/8e87726b-902c-43bb-8dec-8d333e37ec26/thumb_872ffe622665be133574392bacb47ed5",
+      "https://store-eu-par-3.gofile.io/download/web/95fdaced-ece0-4bb8-9a30-cb5b621a5acc/thumb_d45415774069a3802893cc5cdac0e0f8",
+      "https://store-eu-par-3.gofile.io/download/web/ba4b8104-6b27-47ee-8dfe-2cf9cd8eaae9/thumb_f02077834d1987b3420eff927dbc4a68",
+      "https://store10.gofile.io/download/web/8d250078-da4d-4854-b302-b01d5cd4bef1/thumb_c620d2e1dc127d40ed87bfe8c2a34bd8",
+      "https://store5.gofile.io/download/web/c5eb23c3-1ea6-40d5-9111-58e77ee9ccc0/thumb_b3c60000643c9b225fd87934c7fa9136",
+      "https://store10.gofile.io/download/web/b73cd140-2141-4ed7-bc56-a549fe306491/thumb_9c9f27e35102b24a58d720bb426f3f6b",
+      "https://store10.gofile.io/download/web/d8c9cc69-d726-4e65-81cd-357390c5966a/thumb_9ecd3eb06b0684d98882be163be6888e",
+      "https://store-eu-par-3.gofile.io/download/web/f45ed830-3702-4dff-81a9-453cfa97d79a/thumb_f5da33e1e0552feff5ace4cbe7145fe7",
+      "https://store10.gofile.io/download/web/ad541c4a-a844-4984-95ff-f54ed67121aa/thumb_d8a25f054bcfd750b95467dfbb7644b4",
+      "https://store-eu-par-3.gofile.io/download/web/cfcd2217-ca80-4eeb-8b76-3a140d46f29c/thumb_6381cf323f59b957fb3535577026f1d6",
+      "https://store10.gofile.io/download/web/e01bd3f2-0376-4cbe-ace5-534466649aad/thumb_3d362ffca80e6b948b0b0e6a8f2db83e",
+      "https://store-eu-par-3.gofile.io/download/web/9726b0d1-6e13-4f43-b382-107b1704cd51/thumb_59883407872b83330285d3fb99c34fdf",
+      "https://store5.gofile.io/download/web/d67a27fb-c5e1-442d-b0ce-acf1f1195aef/thumb_01dbc4c4c1b349671a6447056689fe3c"
+    ];
+
+    const largeImages = [
+      "https://i.imgur.com/kpMlSqD.jpeg",
+      "https://i.imgur.com/E0tNr7h.jpeg",
+      "https://i.imgur.com/EBNyfvH.jpeg",
+      "https://i.imgur.com/9Ezre9A.jpeg",
+      "https://i.imgur.com/k2SiutE.jpeg",
+      "https://i.imgur.com/gs53xR3.jpeg",
+      "https://i.imgur.com/BDYoqWx.jpeg",
+      "https://i.imgur.com/uCVWmyQ.jpeg",
+      "https://i.imgur.com/4BkDRjx.jpeg",
+      "https://i.imgur.com/g0K6hkd.jpeg",
+      "https://i.imgur.com/OSmVc9A.jpeg",
+      "https://i.imgur.com/ozhTPOu.jpeg",
+      "https://i.imgur.com/VkIrSji.jpeg",
+      "https://i.imgur.com/AcfE76C.jpeg",
+      "https://i.imgur.com/Awr6WCX.jpeg",
+      "https://i.imgur.com/vfePSr8.jpeg",
+      "https://i.imgur.com/eTybJKl.jpeg",
+      "https://i.imgur.com/lT79gag.jpeg",
+      "https://i.imgur.com/GmSBR2R.jpeg",
+      "https://i.imgur.com/sTfeU8b.jpeg",
+      "https://i.imgur.com/wa6RjfR.jpeg",
+      "https://i.imgur.com/JQm7Luj.jpeg",
+      "https://i.imgur.com/aNJffTs.jpeg"
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-image");
+
+    let currentIndex = 0;
+
+    smallImages.forEach((src, i) => {
+      const block = document.createElement("div");
+      block.className = "image-block";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = `Fotoğraf ${i + 1}`;
+      img.onclick = () => openModal(i);
+      block.appendChild(img);
+      gallery.appendChild(block);
+    });
+
+    function openModal(index) {
+      currentIndex = index;
+      modalImg.src = largeImages[index];
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + largeImages.length) % largeImages.length;
+      modalImg.src = largeImages[currentIndex];
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % largeImages.length;
+      modalImg.src = largeImages[currentIndex];
+    }
+
+    window.addEventListener("keydown", e => {
+      if (modal.style.display === "flex") {
+        if (e.key === "ArrowLeft") prevImage();
+        if (e.key === "ArrowRight") nextImage();
+        if (e.key === "Escape") closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
