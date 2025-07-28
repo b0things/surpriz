@@ -15,7 +15,7 @@
     }
 
     body {
-      background-image: url('bizim.png'); /* sizin resminiz */
+      background-image: url('bizim.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -59,13 +59,13 @@
     #heart-message {
       display: none;
       position: absolute;
-      top: 50%;
+      top: 30px;
       left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 28px;
+      transform: translateX(-50%);
+      font-size: 24px;
       color: #f1c40f;
       background: rgba(0, 0, 0, 0.6);
-      padding: 20px 40px;
+      padding: 12px 24px;
       border-radius: 12px;
       opacity: 0;
       z-index: 2000;
@@ -158,10 +158,9 @@
   </style>
 </head>
 <body>
-
   <!-- INTRO -->
   <div id="intro">
-    <video id="intro-video" autoplay muted playsinline>
+    <video id="intro-video" muted playsinline>
       <source src="intro.mp4" type="video/mp4">
     </video>
     <button id="enter-btn">Kalbim</button>
@@ -212,11 +211,8 @@
       video.muted = false;
       video.play();
       btn.style.display = "none";
-
-      // Kalbime giriş yaptın mesajı
       heartMessage.style.display = "block";
 
-      // Mesajdan sonra intro kapanır, site açılır
       video.onended = () => {
         sessionStorage.setItem("introSeen", "true");
         heartMessage.style.display = "none";
