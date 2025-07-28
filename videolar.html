@@ -1,82 +1,102 @@
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Videolar</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🎬 Videolar</title>
   <style>
     body {
-      background-color: #0d0d0d;
+      background-color: black;
       color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px;
       text-align: center;
-      padding: 20px;
     }
+
     h1 {
       font-size: 36px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+      color: #f1c40f;
     }
-    .video-container {
-      background: #1a1a1a;
-      border: 2px solid #f1c40f;
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      margin: 30px auto;
-      max-width: 800px;
-      transition: transform 0.3s ease;
+
+    p.subtitle {
+      font-size: 18px;
+      color: #ffccd5;
+      margin-bottom: 40px;
     }
-    .video-container:hover {
-      transform: scale(1.01);
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
+    .video-block {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.2);
+    }
+
     iframe {
       width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 12px;
+      height: 350px;
+      border-radius: 10px;
     }
-    .back-link {
-      margin-top: 50px;
+
+    .note {
+      margin-top: 60px;
+      font-size: 16px;
+      color: #ff8ba7;
+      font-style: italic;
+    }
+
+    a.home-link {
       display: inline-block;
-      color: #f1c40f;
-      text-decoration: none;
-      font-size: 18px;
-      border: 1px solid #f1c40f;
-      padding: 10px 20px;
+      margin-top: 40px;
+      padding: 12px 25px;
+      background-color: #e74c3c;
+      color: white;
       border-radius: 8px;
+      text-decoration: none;
       transition: background 0.3s ease;
     }
-    .back-link:hover {
-      background: #f1c40f;
-      color: #000;
+
+    a.home-link:hover {
+      background-color: #c0392b;
     }
   </style>
 </head>
 <body>
+
   <h1>🎬 Gözlerinde Kaybolduğum Anların Sesi</h1>
   <p class="subtitle">Bazı anlar sessizdir ama iz bırakan bir film gibi kalır içimizde...</p>
 
-  <div class="video-container"><iframe src="https://streamable.com/e/4fmuuj" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/zpxkmx" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/83xg16" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/5xkdms" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/crsy0z" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/u2isr2" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/j93pf2" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/pjv4e6" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/c03so1" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/vxycq0" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/po3li0" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/djbg0l" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/ilevt4" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/mzzb6e" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/sns02x" allowfullscreen allow="autoplay"></iframe></div>
-  <div class="video-container"><iframe src="https://streamable.com/e/qlf6gh" allowfullscreen allow="autoplay"></iframe></div>
+  <div class="video-grid">
+    <div class="video-block"><iframe src="https://streamable.com/e/4fmuuj" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/zpxkmx" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/83xg16" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/5xkdms" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/crsy0z" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/u2isr2" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/j93pf2" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/pjv4e6" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/c03so1" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/vxycq0" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/po3li0" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/djbg0l" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/ilevt4" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/mzzb6e" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/sns02x" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="video-block"><iframe src="https://streamable.com/e/qlf6gh" allowfullscreen allow="autoplay"></iframe></div>
+  </div>
 
   <div class="note">
     ❤️ Bu videolar, seninle geçen en güzel zamanlardan sadece birkaçı... Daha niceleri eklenecek sevgilim.
   </div>
-  
-  <a href="index.html" class="back-link">Ana sayfaya dön</a>
+
+  <a class="home-link" href="index.html">⟵ Ana Sayfaya Dön</a>
+
 </body>
 </html>
