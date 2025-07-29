@@ -11,47 +11,43 @@
       padding: 40px 20px;
       text-align: center;
     }
-
     h1 {
       font-size: 36px;
       margin-bottom: 10px;
-      color: #f1c40f;
+      color: #f39c12;
     }
-
     p.subtitle {
       font-size: 18px;
-      color: #ffccd5;
+      color: #fdd;
       margin-bottom: 40px;
     }
-
-    .video-grid {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
+      gap: 20px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-
     .video-block {
       background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
       border-radius: 12px;
-      padding: 15px;
       box-shadow: 0 0 15px rgba(255, 192, 203, 0.2);
+      cursor: pointer;
     }
-
-    iframe {
+    .video-block iframe {
       width: 100%;
-      height: 350px;
+      height: 200px;
+      border: none;
       border-radius: 10px;
+      pointer-events: none;
     }
-
     .note {
       margin-top: 60px;
       font-size: 16px;
       color: #ff8ba7;
       font-style: italic;
     }
-
     a.home-link {
       display: inline-block;
       margin-top: 40px;
@@ -62,41 +58,127 @@
       text-decoration: none;
       transition: background 0.3s ease;
     }
-
     a.home-link:hover {
       background-color: #c0392b;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .modal iframe {
+      width: 90%;
+      height: 80vh;
+      border-radius: 10px;
+    }
+    .modal-controls {
+      margin-top: 20px;
+    }
+    .modal-controls button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #ff6b81;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .modal-controls button:hover {
+      background-color: #ff4757;
     }
   </style>
 </head>
 <body>
 
-  <h1>🎬 Gözlerinde Kaybolduğum Anların Sesi</h1>
-  <p class="subtitle">Bazı anlar sessizdir ama iz bırakan bir film gibi kalır içimizde...</p>
+  <h1>🎬 Hatıralarımız</h1>
+  <p class="subtitle">🎬 Gözlerinde Kaybolduğum Anların Sesi</p>
 
-  <div class="video-grid">
-    <div class="video-block"><iframe src="https://streamable.com/e/4fmuuj" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/zpxkmx" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/83xg16" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/5xkdms" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/crsy0z" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/u2isr2" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/j93pf2" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/pjv4e6" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/c03so1" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/vxycq0" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/po3li0" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/djbg0l" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/ilevt4" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/mzzb6e" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/sns02x" allowfullscreen allow="autoplay"></iframe></div>
-    <div class="video-block"><iframe src="https://streamable.com/e/qlf6gh" allowfullscreen allow="autoplay"></iframe></div>
-  </div>
+  <div class="gallery" id="videoGallery"></div>
 
   <div class="note">
-    ❤️ Bu videolar, seninle geçen en güzel zamanlardan sadece birkaçı... Daha niceleri eklenecek sevgilim.
+    🎥 Bazı anlar sessizdir ama iz bırakan bir film gibi kalır içimizde...
   </div>
 
   <a class="home-link" href="index.html">⟵ Ana Sayfaya Dön</a>
+
+  <div class="modal" id="modal">
+    <iframe id="modal-video" src="" allowfullscreen></iframe>
+    <div class="modal-controls">
+      <button onclick="prevVideo()">⟵ Önceki</button>
+      <button onclick="closeModal()">Kapat</button>
+      <button onclick="nextVideo()">Sonraki ⟶</button>
+    </div>
+  </div>
+
+  <script>
+    const videoLinks = [
+      "https://streamable.com/e/4fmuuj",
+      "https://streamable.com/e/zpxkmx",
+      "https://streamable.com/e/83xg16",
+      "https://streamable.com/e/5xkdms",
+      "https://streamable.com/e/crsy0z",
+      "https://streamable.com/e/u2isr2",
+      "https://streamable.com/e/j93pf2",
+      "https://streamable.com/e/pjv4e6",
+      "https://streamable.com/e/c03so1",
+      "https://streamable.com/e/vxycq0",
+      "https://streamable.com/e/po3li0",
+      "https://streamable.com/e/djbg0l",
+      "https://streamable.com/e/ilevt4",
+      "https://streamable.com/e/mzzb6e",
+      "https://streamable.com/e/sns02x",
+      "https://streamable.com/e/qlf6gh"
+    ];
+
+    const gallery = document.getElementById("videoGallery");
+    const modal = document.getElementById("modal");
+    const modalVideo = document.getElementById("modal-video");
+    let currentIndex = 0;
+
+    videoLinks.forEach((link, i) => {
+      const block = document.createElement("div");
+      block.className = "video-block";
+      block.innerHTML = `<iframe src="${link}" allowfullscreen></iframe>`;
+      block.addEventListener("click", () => openModal(i));
+      gallery.appendChild(block);
+    });
+
+    function openModal(index) {
+      currentIndex = index;
+      modalVideo.src = videoLinks[index];
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      modalVideo.src = "";
+    }
+
+    function prevVideo() {
+      currentIndex = (currentIndex - 1 + videoLinks.length) % videoLinks.length;
+      modalVideo.src = videoLinks[currentIndex];
+    }
+
+    function nextVideo() {
+      currentIndex = (currentIndex + 1) % videoLinks.length;
+      modalVideo.src = videoLinks[currentIndex];
+    }
+
+    window.addEventListener("keydown", e => {
+      if (modal.style.display === "flex") {
+        if (e.key === "ArrowLeft") prevVideo();
+        if (e.key === "ArrowRight") nextVideo();
+        if (e.key === "Escape") closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
